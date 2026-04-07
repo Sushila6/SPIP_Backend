@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartPlot Portal Presentation</title>
+    <style>
+        :root {
+            --bg: #f5f7fb;
+            --page: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --accent: #0f5bd8;
+            --line: #dbe3ef;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 32px auto;
+            background: var(--page);
+            padding: 40px 48px 56px;
+            box-shadow: 0 18px 60px rgba(15, 23, 42, 0.08);
+        }
+
+        h1, h2, h3 {
+            font-family: Georgia, serif;
+            margin: 0 0 12px;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            color: var(--accent);
+        }
+
+        h2 {
+            margin-top: 32px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--line);
+            font-size: 1.5rem;
+        }
+
+        h3 {
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+
+        p {
+            margin: 0 0 12px;
+        }
+
+        ul, ol {
+            margin: 0 0 16px 20px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        .hero {
+            margin-bottom: 24px;
+        }
+
+        .box {
+            margin: 18px 0;
+            padding: 16px 18px;
+            border: 1px solid var(--line);
+            background: #f8fbff;
+            border-radius: 12px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .label {
+            display: inline-block;
+            margin-bottom: 8px;
+            font-size: 0.82rem;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        code {
+            background: #eef4ff;
+            padding: 2px 6px;
+            border-radius: 6px;
+            font-size: 0.95em;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                max-width: none;
+                box-shadow: none;
+                padding: 20px 28px 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <section class="hero">
+            <h1>SmartPlot Portal</h1>
+            <p class="muted">Project Presentation, Viva Guide, Demo Flow, and Team Handover Notes</p>
+            <div class="box">
+                <div class="label">Repository</div>
+                <p><code>https://github.com/pranavburadi/smartplot-portal</code></p>
+                <div class="label">Project Type</div>
+                <p>Full-stack real estate portal prototype for plot listing, browsing, and booking.</p>
+            </div>
+        </section>
+
+        <h2>1. Project Overview</h2>
+        <p>
+            SmartPlot Portal is a full-stack real estate web application prototype built for property listing,
+            plot discovery, and buyer reservation flow. It allows users to sign up, log in securely, browse
+            live plot inventory, search and filter plots, and reserve available plots under their own account.
+        </p>
+        <p>
+            The current version combines both buyer-facing booking features and internal inventory management
+            features in one portal to demonstrate the complete workflow.
+        </p>
+
+        <h2>2. Objective</h2>
+        <p>The goal of the project is to simulate a real estate platform where:</p>
+        <ul>
+            <li>Users can create accounts and log in securely.</li>
+            <li>Plots can be listed and managed in a structured system.</li>
+            <li>Buyers can browse available plots and reserve them.</li>
+            <li>The booking lifecycle can be tracked from available to reserved.</li>
+        </ul>
+
+        <h2>3. Tech Stack</h2>
+        <div class="grid">
+            <div class="box">
+                <div class="label">Backend</div>
+                <ul>
+                    <li>Java 17 / 21 compatible</li>
+                    <li>Spring Boot 3</li>
+                    <li>Spring Web</li>
+                    <li>Spring Data JPA</li>
+                    <li>Spring Security</li>
+                    <li>JWT Authentication</li>
+                </ul>
+            </div>
+            <div class="box">
+                <div class="label">Database + Frontend</div>
+                <ul>
+                    <li>MySQL</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>Frontend served directly by Spring Boot</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>4. Current Features Implemented</h2>
+        <h3>Authentication</h3>
+        <ul>
+            <li>User signup</li>
+            <li>User login</li>
+            <li>JWT-based authentication</li>
+            <li>Protected API routes</li>
+            <li>Logout flow</li>
+            <li>Login persistence in browser storage</li>
+        </ul>
+
+        <h3>User Management</h3>
+        <ul>
+            <li>View registered users</li>
+            <li>Basic user directory display</li>
+        </ul>
+
+        <h3>Plot Management</h3>
+        <ul>
+            <li>Create plot listings</li>
+            <li>Edit plot listings</li>
+            <li>Delete plot listings</li>
+            <li>Search plots</li>
+            <li>Filter by status</li>
+            <li>Add image URLs to plots</li>
+        </ul>
+
+        <h3>Booking Flow</h3>
+        <ul>
+            <li>Users can book an available plot</li>
+            <li>Booked plots move from <code>AVAILABLE</code> to <code>RESERVED</code></li>
+            <li>Booked plots are tied to the logged-in user</li>
+            <li>Users can view <code>My booked plots</code></li>
+            <li>Users can cancel their own booking</li>
+        </ul>
+
+        <h2>5. Core Workflow</h2>
+        <ol>
+            <li>User opens the portal.</li>
+            <li>User signs up or logs in.</li>
+            <li>Backend validates credentials and returns a JWT token.</li>
+            <li>Frontend stores the token and uses it in future requests.</li>
+            <li>User browses available plots.</li>
+            <li>User books a plot.</li>
+            <li>The plot status changes to reserved and appears under that user’s bookings.</li>
+        </ol>
+
+        <h2>6. Main APIs</h2>
+        <div class="box">
+            <div class="label">Public Endpoints</div>
+            <ul>
+                <li><code>POST /signup</code></li>
+                <li><code>POST /login</code></li>
+                <li><code>GET /health</code></li>
+            </ul>
+        </div>
+        <div class="box">
+            <div class="label">Protected Endpoints</div>
+            <ul>
+                <li><code>GET /users</code></li>
+                <li><code>GET /plots</code></li>
+                <li><code>POST /plots</code></li>
+                <li><code>PUT /plots/{plotId}</code></li>
+                <li><code>DELETE /plots/{plotId}</code></li>
+                <li><code>POST /plots/{plotId}/book</code></li>
+                <li><code>POST /plots/{plotId}/cancel-booking</code></li>
+                <li><code>GET /plots/my-bookings</code></li>
+            </ul>
+        </div>
+
+        <h2>7. What to Say During Presentation</h2>
+        <div class="box">
+            <p>
+                “SmartPlot Portal is a full-stack real estate portal prototype for plot listing and booking.
+                Users can register, log in securely, browse available plots, filter them by status, and reserve
+                plots under their account. The backend is built with Spring Boot and MySQL, while the frontend is
+                served directly through the Spring Boot application.”
+            </p>
+        </div>
+
+        <h2>8. Recommended Demo Flow</h2>
+        <ol>
+            <li>Open the homepage.</li>
+            <li>Sign up or log in.</li>
+            <li>Show that the portal loads protected data.</li>
+            <li>Create a plot listing with image URL.</li>
+            <li>Show search and filter.</li>
+            <li>Click <code>Book Plot</code> on an available listing.</li>
+            <li>Show that it appears in <code>My booked plots</code>.</li>
+            <li>Cancel the booking.</li>
+            <li>Edit a plot.</li>
+            <li>Delete a plot if needed.</li>
+        </ol>
+
+        <h2>9. Questions You May Be Asked</h2>
+        <h3>What problem does this solve?</h3>
+        <p>It combines property listing management and buyer plot reservation in one portal.</p>
+
+        <h3>Why Spring Boot?</h3>
+        <p>It provides fast backend development, REST APIs, security support, and easy database integration with JPA.</p>
+
+        <h3>Why MySQL?</h3>
+        <p>Because this application deals with structured relational data like users, plots, and bookings.</p>
+
+        <h3>How does authentication work?</h3>
+        <p>User logs in, backend verifies credentials, returns a JWT token, and protected requests include that token.</p>
+
+        <h3>How does booking work?</h3>
+        <p>A user can book a plot only if its status is available. Booking changes the plot to reserved and ties it to the user account.</p>
+
+        <h3>What happens if a plot is already reserved?</h3>
+        <p>The backend prevents booking again unless the plot is available.</p>
+
+        <h3>Is this production ready?</h3>
+        <p>No. It is a working MVP/prototype, not a final production deployment.</p>
+
+        <h2>10. Honest Project Status</h2>
+        <p>This project is currently a <strong>working prototype / MVP</strong>.</p>
+        <p>It is strong enough for demo and submission, but it does not yet include all enterprise-level modules.</p>
+
+        <h3>Completed Well</h3>
+        <ul>
+            <li>Authentication</li>
+            <li>Plot CRUD</li>
+            <li>Search and filters</li>
+            <li>Booking and cancellation</li>
+            <li>Buyer-facing plot browsing flow</li>
+        </ul>
+
+        <h3>Still Missing / Future Scope</h3>
+        <ul>
+            <li>Role-based access with CLIENT / DEVELOPER / ADMIN</li>
+            <li>Separate dashboards for each role</li>
+            <li>Real image upload and storage</li>
+            <li>Mock or real payment module</li>
+            <li>Notifications</li>
+            <li>Reports and analytics</li>
+            <li>Public live deployment</li>
+        </ul>
+
+        <h2>11. Team Division Suggestion</h2>
+        <div class="box">
+            <ul>
+                <li>Student 1: Authentication and user management</li>
+                <li>Student 2: Plot backend APIs and database logic</li>
+                <li>Student 3: Frontend property and booking UI</li>
+                <li>Student 4: Search, filters, and UX polish</li>
+                <li>Student 5: Booking workflow and payment simulation</li>
+                <li>Student 6: Reports, deployment, and documentation</li>
+            </ul>
+        </div>
+
+        <h2>12. How Group Members Can Access It</h2>
+        <h3>Source Code</h3>
+        <p><code>https://github.com/pranavburadi/smartplot-portal</code></p>
+
+        <h3>Local Run</h3>
+        <ol>
+            <li>Clone the repository.</li>
+            <li>Create the MySQL database <code>smart_plot_portal</code>.</li>
+            <li>Run the Spring Boot application.</li>
+            <li>Open <code>http://localhost:8081/</code>.</li>
+        </ol>
+
+        <h2>13. Suggested Final Line</h2>
+        <div class="box">
+            <p>
+                “This project demonstrates the core workflow of a real estate portal by combining authentication,
+                live inventory management, and plot reservation. It is designed as a scalable MVP that can be extended
+                into a full production system with roles, payments, analytics, and deployment.”
+            </p>
+        </div>
+
+        <h2>14. Export as PDF</h2>
+        <ol>
+            <li>Open this file in your browser.</li>
+            <li>Press <code>Ctrl + P</code>.</li>
+            <li>Choose <code>Save as PDF</code>.</li>
+            <li>Save it and share it with your group.</li>
+        </ol>
+    </main>
+</body>
+</html>

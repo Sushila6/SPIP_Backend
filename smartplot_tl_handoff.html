@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartPlot Portal TL Handoff</title>
+    <style>
+        :root {
+            --bg: #f4f7fb;
+            --page: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --accent: #0f5bd8;
+            --line: #dbe4ef;
+            --soft: #f8fbff;
+            --warn: #fff7e6;
+            --good: #eefaf1;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Arial, sans-serif;
+            line-height: 1.65;
+        }
+
+        .page {
+            max-width: 1020px;
+            margin: 32px auto;
+            background: var(--page);
+            padding: 42px 50px 64px;
+            box-shadow: 0 20px 70px rgba(15, 23, 42, 0.08);
+        }
+
+        h1, h2, h3 {
+            font-family: Georgia, serif;
+            margin: 0 0 12px;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            color: var(--accent);
+        }
+
+        h2 {
+            margin-top: 34px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--line);
+            font-size: 1.55rem;
+        }
+
+        h3 {
+            margin-top: 20px;
+            font-size: 1.12rem;
+        }
+
+        p {
+            margin: 0 0 12px;
+        }
+
+        ul, ol {
+            margin: 0 0 16px 22px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        .box {
+            margin: 18px 0;
+            padding: 16px 18px;
+            border: 1px solid var(--line);
+            background: var(--soft);
+            border-radius: 12px;
+        }
+
+        .warning {
+            background: var(--warn);
+            border-color: #f4d38a;
+        }
+
+        .success {
+            background: var(--good);
+            border-color: #b7e2c2;
+        }
+
+        .label {
+            display: inline-block;
+            margin-bottom: 8px;
+            font-size: 0.82rem;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        code {
+            background: #eef4ff;
+            padding: 2px 6px;
+            border-radius: 6px;
+            font-size: 0.95em;
+        }
+
+        pre {
+            margin: 12px 0;
+            padding: 14px 16px;
+            border-radius: 12px;
+            background: #0f172a;
+            color: #f8fafc;
+            overflow-x: auto;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0 20px;
+        }
+
+        th, td {
+            text-align: left;
+            border: 1px solid var(--line);
+            padding: 10px 12px;
+            vertical-align: top;
+        }
+
+        th {
+            background: var(--soft);
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                max-width: none;
+                box-shadow: none;
+                padding: 20px 28px 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <h1>SmartPlot Portal Team Lead Handoff</h1>
+        <p class="muted">Project summary, current implementation status, setup flow, limitations, and recommended next steps.</p>
+
+        <div class="box">
+            <div class="label">Repository</div>
+            <p><a href="https://github.com/pranavburadi/smartplot-portal">https://github.com/pranavburadi/smartplot-portal</a></p>
+            <div class="label">Current State</div>
+            <p>Working local MVP / prototype for real estate plot listing and booking.</p>
+        </div>
+
+        <h2>1. Executive Summary</h2>
+        <p>
+            SmartPlot Portal is a full-stack real estate portal prototype built using Spring Boot, MySQL,
+            JWT authentication, and a frontend served directly from the backend. It currently supports user
+            registration, login, live plot inventory management, image-based listing display, plot booking,
+            booking cancellation, and a user-specific “My booked plots” section.
+        </p>
+        <p>
+            The project is functional as a local demo system and is suitable for internal review, academic
+            submission, or continued team development. It is not yet a complete production-grade real estate platform.
+        </p>
+
+        <h2>2. What the Project Currently Is</h2>
+        <p>The project currently combines two workflows in a single portal:</p>
+        <ul>
+            <li><strong>Buyer-facing flow:</strong> sign up, log in, browse listings, book available plots, cancel own bookings</li>
+            <li><strong>Internal inventory flow:</strong> create plots, edit listings, delete listings, add image URLs, update status</li>
+        </ul>
+
+        <div class="box success">
+            <div class="label">Current Value</div>
+            <p>This is already a usable end-to-end prototype showing the core booking lifecycle from listing to reservation.</p>
+        </div>
+
+        <h2>3. Tech Stack</h2>
+        <table>
+            <tr>
+                <th>Layer</th>
+                <th>Technology</th>
+                <th>Purpose</th>
+            </tr>
+            <tr>
+                <td>Backend</td>
+                <td>Spring Boot 3</td>
+                <td>REST APIs, business logic, application runtime</td>
+            </tr>
+            <tr>
+                <td>Security</td>
+                <td>Spring Security + JWT</td>
+                <td>Authentication and protected endpoints</td>
+            </tr>
+            <tr>
+                <td>Persistence</td>
+                <td>Spring Data JPA</td>
+                <td>Database access through repositories</td>
+            </tr>
+            <tr>
+                <td>Database</td>
+                <td>MySQL</td>
+                <td>Stores users and plots data</td>
+            </tr>
+            <tr>
+                <td>Frontend</td>
+                <td>HTML, CSS, JavaScript</td>
+                <td>User interface, booking flow, dashboard rendering</td>
+            </tr>
+        </table>
+
+        <h2>4. Features Implemented</h2>
+        <h3>Authentication</h3>
+        <ul>
+            <li>User signup</li>
+            <li>User login</li>
+            <li>Password hashing with BCrypt</li>
+            <li>JWT token-based authentication</li>
+            <li>Protected API routes</li>
+            <li>Logout flow</li>
+            <li>Login persistence using browser local storage</li>
+        </ul>
+
+        <h3>Users</h3>
+        <ul>
+            <li>Basic user directory display</li>
+            <li>View all registered users</li>
+        </ul>
+
+        <h3>Plots / Inventory</h3>
+        <ul>
+            <li>Create plot listings</li>
+            <li>Edit plot listings</li>
+            <li>Delete plot listings</li>
+            <li>Search plots by plot number, owner, location</li>
+            <li>Filter plots by status</li>
+            <li>Add and display image URLs for plots</li>
+        </ul>
+
+        <h3>Booking</h3>
+        <ul>
+            <li>Book an available plot as the logged-in user</li>
+            <li>Only <code>AVAILABLE</code> plots can be booked</li>
+            <li>Booking changes plot status to <code>RESERVED</code></li>
+            <li>Booked plot is linked to the logged-in user by name/email</li>
+            <li>User can view <code>My booked plots</code></li>
+            <li>User can cancel their own booking</li>
+        </ul>
+
+        <h2>5. Current Business Flow</h2>
+        <ol>
+            <li>User signs up or logs in.</li>
+            <li>Backend returns a JWT token.</li>
+            <li>Frontend stores the token and uses it in protected requests.</li>
+            <li>User browses live plot inventory.</li>
+            <li>User books an available plot.</li>
+            <li>Plot status changes from available to reserved.</li>
+            <li>Plot appears under the user’s booking section.</li>
+            <li>User can cancel the booking and release the plot back to inventory.</li>
+        </ol>
+
+        <h2>6. Main API Coverage</h2>
+        <div class="box">
+            <div class="label">Public Endpoints</div>
+            <ul>
+                <li><code>POST /signup</code></li>
+                <li><code>POST /login</code></li>
+                <li><code>GET /health</code></li>
+            </ul>
+        </div>
+        <div class="box">
+            <div class="label">Protected Endpoints</div>
+            <ul>
+                <li><code>GET /users</code></li>
+                <li><code>GET /plots</code></li>
+                <li><code>POST /plots</code></li>
+                <li><code>PUT /plots/{plotId}</code></li>
+                <li><code>DELETE /plots/{plotId}</code></li>
+                <li><code>POST /plots/{plotId}/book</code></li>
+                <li><code>POST /plots/{plotId}/cancel-booking</code></li>
+                <li><code>GET /plots/my-bookings</code></li>
+            </ul>
+        </div>
+
+        <h2>7. Frontend State</h2>
+        <p>The portal now includes:</p>
+        <ul>
+            <li>corporate-style landing and dashboard presentation</li>
+            <li>authentication section</li>
+            <li>live user section</li>
+            <li>plot management form</li>
+            <li>plot inventory grid with cards and images</li>
+            <li>buyer booking controls</li>
+            <li>my bookings section</li>
+        </ul>
+
+        <h2>8. What Is Still Missing</h2>
+        <div class="box warning">
+            <div class="label">Important</div>
+            <p>This project is functional, but it does <strong>not yet fully satisfy</strong> a complete production-grade real estate portal specification.</p>
+        </div>
+
+        <h3>Missing or Partial Areas</h3>
+        <ul>
+            <li><strong>Role-based access:</strong> no full separation yet for CLIENT / DEVELOPER / ADMIN</li>
+            <li><strong>Separate dashboards:</strong> buyer and admin flows are still combined in one portal</li>
+            <li><strong>Property details page:</strong> no dedicated single-property detailed route/page</li>
+            <li><strong>Real image upload:</strong> only image URLs are supported, not file uploads</li>
+            <li><strong>Payment module:</strong> no mock or live payment system yet</li>
+            <li><strong>Notifications:</strong> no email or in-app alert flow</li>
+            <li><strong>Reports / analytics:</strong> not implemented</li>
+            <li><strong>Admin approvals:</strong> not implemented</li>
+            <li><strong>User profile management:</strong> very basic, no edit/delete/profile screen</li>
+            <li><strong>Production deployment:</strong> deployment prep exists, but no fully active public hosting link</li>
+        </ul>
+
+        <h2>9. Suggested Next Development Priorities</h2>
+        <ol>
+            <li><strong>Role Separation</strong>
+                <br>Introduce roles like CLIENT, DEVELOPER, ADMIN and secure routes accordingly.
+            </li>
+            <li><strong>Split Dashboards</strong>
+                <br>Create one buyer dashboard for browsing/booking and one admin dashboard for listing management.
+            </li>
+            <li><strong>Property Detail Pages</strong>
+                <br>Add a dedicated page or modal with more information, images, and booking CTA.
+            </li>
+            <li><strong>Payment Simulation</strong>
+                <br>Add a dummy payment success/failure flow for bookings.
+            </li>
+            <li><strong>Admin Approval Workflow</strong>
+                <br>Allow new properties to be approved before being visible publicly.
+            </li>
+            <li><strong>Analytics & Reporting</strong>
+                <br>Add counts, totals, and booking activity reports.
+            </li>
+            <li><strong>Deployment</strong>
+                <br>Host backend and DB so the project is accessible publicly.</li>
+        </ol>
+
+        <h2>10. How to Run It Locally</h2>
+        <h3>Requirements</h3>
+        <ul>
+            <li>Git</li>
+            <li>Java JDK</li>
+            <li>VS Code or IntelliJ</li>
+            <li>MySQL Server</li>
+        </ul>
+
+        <h3>Repository</h3>
+        <p><a href="https://github.com/pranavburadi/smartplot-portal">https://github.com/pranavburadi/smartplot-portal</a></p>
+
+        <h3>Clone</h3>
+        <pre>git clone https://github.com/pranavburadi/smartplot-portal.git
+cd smartplot-portal</pre>
+
+        <h3>Create Database</h3>
+        <pre>CREATE DATABASE smart_plot_portal;</pre>
+
+        <h3>Run</h3>
+        <p>Open the project in VS Code and run:</p>
+        <p><code>src/main/java/com/example/smartplot/SmartplotApplication.java</code></p>
+
+        <p>Then open:</p>
+        <pre>http://localhost:8081/</pre>
+
+        <h2>11. Current Local Configuration Assumption</h2>
+        <p>The project currently expects a local MySQL setup similar to:</p>
+        <ul>
+            <li>Host: <code>localhost</code></li>
+            <li>Port: <code>3306</code></li>
+            <li>Database: <code>smart_plot_portal</code></li>
+            <li>Username: <code>root</code></li>
+            <li>Password: <code>root123</code></li>
+        </ul>
+
+        <p>These can be overridden with environment variables for deployment.</p>
+
+        <h2>12. What a TL Should Understand Quickly</h2>
+        <ul>
+            <li>The backend is already structured enough for further expansion.</li>
+            <li>The current version is useful as an MVP and demo artifact.</li>
+            <li>The booking flow is implemented, but the system still needs role separation and enterprise modules.</li>
+            <li>The project is suitable for delegation into modules like auth, listings, buyer flow, reports, and deployment.</li>
+        </ul>
+
+        <h2>13. Suggested Team Division</h2>
+        <table>
+            <tr>
+                <th>Team Member</th>
+                <th>Suggested Ownership</th>
+            </tr>
+            <tr>
+                <td>Member 1</td>
+                <td>Authentication and user management</td>
+            </tr>
+            <tr>
+                <td>Member 2</td>
+                <td>Plot CRUD backend and DB model</td>
+            </tr>
+            <tr>
+                <td>Member 3</td>
+                <td>Frontend plot catalogue and booking UX</td>
+            </tr>
+            <tr>
+                <td>Member 4</td>
+                <td>Search, filters, and detail pages</td>
+            </tr>
+            <tr>
+                <td>Member 5</td>
+                <td>Payment simulation and notifications</td>
+            </tr>
+            <tr>
+                <td>Member 6</td>
+                <td>Deployment, reports, and documentation</td>
+            </tr>
+        </table>
+
+        <h2>14. Presentation Positioning</h2>
+        <p>A professional way to describe the current state is:</p>
+        <div class="box">
+            <p>
+                “SmartPlot Portal is a working real estate MVP that already demonstrates the core inventory and booking lifecycle.
+                It supports secure authentication, live plot listing management, and buyer reservation flow. The current system is
+                locally functional and modular enough to be extended into a full real estate platform with role-based dashboards,
+                payment simulation, approval workflows, notifications, reporting, and deployment.”
+            </p>
+        </div>
+
+        <h2>15. Final Recommendation</h2>
+        <p>
+            This project is strong enough to show real engineering effort and a meaningful business workflow.
+            However, if it is being judged against a broader internship/company scope, it should be presented as:
+        </p>
+        <ul>
+            <li>a working MVP</li>
+            <li>a foundation build</li>
+            <li>a modular prototype ready for role expansion and enterprise features</li>
+        </ul>
+
+        <h2>16. Export as PDF</h2>
+        <ol>
+            <li>Open this file in your browser.</li>
+            <li>Press <code>Ctrl + P</code>.</li>
+            <li>Select <code>Save as PDF</code>.</li>
+            <li>Share the PDF with your TL.</li>
+        </ol>
+    </main>
+</body>
+</html>

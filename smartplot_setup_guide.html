@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartPlot Portal Detailed Setup Guide</title>
+    <style>
+        :root {
+            --bg: #f4f7fb;
+            --page: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --accent: #0f5bd8;
+            --line: #dbe4ef;
+            --soft: #f8fbff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Arial, sans-serif;
+            line-height: 1.65;
+        }
+
+        .page {
+            max-width: 980px;
+            margin: 32px auto;
+            background: var(--page);
+            padding: 40px 48px 60px;
+            box-shadow: 0 18px 60px rgba(15, 23, 42, 0.08);
+        }
+
+        h1, h2, h3 {
+            font-family: Georgia, serif;
+            margin: 0 0 12px;
+        }
+
+        h1 {
+            color: var(--accent);
+            font-size: 2.3rem;
+        }
+
+        h2 {
+            margin-top: 34px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--line);
+            font-size: 1.5rem;
+        }
+
+        h3 {
+            margin-top: 20px;
+            font-size: 1.12rem;
+        }
+
+        p {
+            margin: 0 0 12px;
+        }
+
+        ul, ol {
+            margin: 0 0 16px 22px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        .box {
+            margin: 18px 0;
+            padding: 16px 18px;
+            border: 1px solid var(--line);
+            background: var(--soft);
+            border-radius: 12px;
+        }
+
+        .warning {
+            background: #fff8e8;
+            border-color: #f7d48b;
+        }
+
+        .success {
+            background: #eefaf1;
+            border-color: #b7e2c2;
+        }
+
+        .label {
+            display: inline-block;
+            margin-bottom: 8px;
+            font-size: 0.82rem;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        code {
+            background: #eef4ff;
+            padding: 2px 6px;
+            border-radius: 6px;
+            font-size: 0.95em;
+        }
+
+        pre {
+            margin: 12px 0;
+            padding: 14px 16px;
+            border-radius: 12px;
+            background: #0f172a;
+            color: #f8fafc;
+            overflow-x: auto;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0 20px;
+        }
+
+        th, td {
+            text-align: left;
+            border: 1px solid var(--line);
+            padding: 10px 12px;
+        }
+
+        th {
+            background: var(--soft);
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                max-width: none;
+                box-shadow: none;
+                padding: 20px 28px 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <h1>SmartPlot Portal Detailed Setup Guide</h1>
+        <p class="muted">Step-by-step instructions for opening the GitHub repository, cloning it, setting up MySQL, and running the project locally.</p>
+
+        <div class="box">
+            <div class="label">Repository Link</div>
+            <p><a href="https://github.com/pranavburadi/smartplot-portal">https://github.com/pranavburadi/smartplot-portal</a></p>
+        </div>
+
+        <h2>1. What This Guide Covers</h2>
+        <p>This document is for anyone who wants to run your project on another laptop or PC after opening the GitHub repository.</p>
+        <p>It explains:</p>
+        <ul>
+            <li>what software needs to be installed first</li>
+            <li>how to clone the project</li>
+            <li>how to create the MySQL database</li>
+            <li>how to run the Spring Boot backend</li>
+            <li>how to open the frontend in the browser</li>
+            <li>what to do if something does not work</li>
+        </ul>
+
+        <h2>2. Requirements</h2>
+        <p>Before running the project, install these tools.</p>
+
+        <table>
+            <tr>
+                <th>Tool</th>
+                <th>Why It Is Needed</th>
+                <th>Link</th>
+            </tr>
+            <tr>
+                <td>Git</td>
+                <td>To clone the GitHub repository</td>
+                <td><a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></td>
+            </tr>
+            <tr>
+                <td>Java JDK</td>
+                <td>To run the Spring Boot application</td>
+                <td><a href="https://adoptium.net/">https://adoptium.net/</a></td>
+            </tr>
+            <tr>
+                <td>VS Code</td>
+                <td>To open and run the project easily</td>
+                <td><a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></td>
+            </tr>
+            <tr>
+                <td>Extension Pack for Java</td>
+                <td>Lets VS Code run Java projects properly</td>
+                <td><a href="https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack">VS Code Java Pack</a></td>
+            </tr>
+            <tr>
+                <td>MySQL Server</td>
+                <td>Stores users and plots data</td>
+                <td><a href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a></td>
+            </tr>
+            <tr>
+                <td>MySQL Workbench (optional)</td>
+                <td>Easier GUI for checking database tables</td>
+                <td><a href="https://dev.mysql.com/downloads/workbench/">https://dev.mysql.com/downloads/workbench/</a></td>
+            </tr>
+        </table>
+
+        <div class="box warning">
+            <div class="label">Important</div>
+            <p>You do not need a public deployment link for local usage. This project can be run entirely on a local machine.</p>
+        </div>
+
+        <h2>3. Step 1: Open the GitHub Repository</h2>
+        <ol>
+            <li>Open this link in your browser:
+                <br><a href="https://github.com/pranavburadi/smartplot-portal">https://github.com/pranavburadi/smartplot-portal</a>
+            </li>
+            <li>Click the green <code>Code</code> button.</li>
+            <li>Make sure <code>HTTPS</code> is selected.</li>
+            <li>Copy the repository URL.</li>
+        </ol>
+
+        <h2>4. Step 2: Clone the Project</h2>
+        <p>Open terminal, PowerShell, or command prompt and run:</p>
+        <pre>git clone https://github.com/pranavburadi/smartplot-portal.git</pre>
+
+        <p>Then go into the project folder:</p>
+        <pre>cd smartplot-portal</pre>
+
+        <p>At this point, the project files should be on the computer.</p>
+
+        <h2>5. Step 3: Open the Project in VS Code</h2>
+        <ol>
+            <li>Open VS Code.</li>
+            <li>Click <code>File -&gt; Open Folder</code>.</li>
+            <li>Select the cloned project folder <code>smartplot-portal</code>.</li>
+            <li>Wait for VS Code to load the Java project.</li>
+        </ol>
+
+        <div class="box">
+            <div class="label">Main Files to Know</div>
+            <ul>
+                <li><code>pom.xml</code> — project dependencies and build configuration</li>
+                <li><code>src/main/java/com/example/smartplot/SmartplotApplication.java</code> — application entry point</li>
+                <li><code>src/main/resources/application.properties</code> — app configuration</li>
+                <li><code>src/main/resources/static/index.html</code> — frontend page</li>
+                <li><code>src/main/resources/static/app.js</code> — frontend logic</li>
+                <li><code>src/main/resources/static/styles.css</code> — frontend styling</li>
+            </ul>
+        </div>
+
+        <h2>6. Step 4: Create the MySQL Database</h2>
+        <p>Open MySQL Workbench or MySQL command line and create the database:</p>
+        <pre>CREATE DATABASE smart_plot_portal;</pre>
+
+        <p>The project will use this database name locally.</p>
+
+        <h3>Optional: Check That MySQL Is Running</h3>
+        <p>If MySQL is not running, the Spring Boot app will fail to start.</p>
+        <p>Typical local config expected by the project:</p>
+        <ul>
+            <li>Host: <code>localhost</code></li>
+            <li>Port: <code>3306</code></li>
+            <li>Database: <code>smart_plot_portal</code></li>
+            <li>User: <code>root</code></li>
+            <li>Password: <code>root123</code></li>
+        </ul>
+
+        <h2>7. Step 5: Review Local Configuration</h2>
+        <p>Open this file in the project:</p>
+        <p><code>src/main/resources/application.properties</code></p>
+
+        <p>The local fallbacks currently support local development. If the local MySQL setup is different, update the values or set environment variables.</p>
+
+        <p>What this file controls:</p>
+        <ul>
+            <li>database connection</li>
+            <li>server port</li>
+            <li>JWT secret</li>
+            <li>JPA table update behavior</li>
+        </ul>
+
+        <h2>8. Step 6: Run the Application</h2>
+        <h3>Method A: Run with VS Code</h3>
+        <ol>
+            <li>Open <code>SmartplotApplication.java</code></li>
+            <li>Right-click it</li>
+            <li>Click <code>Run Java</code></li>
+        </ol>
+
+        <h3>Method B: Run with Maven</h3>
+        <p>If Maven is installed, run:</p>
+        <pre>mvn spring-boot:run</pre>
+
+        <div class="box warning">
+            <div class="label">If Maven Is Not Installed</div>
+            <p>Use the VS Code <code>Run Java</code> option. That is enough for local execution.</p>
+        </div>
+
+        <h2>9. Step 7: Open the Frontend</h2>
+        <p>Once Spring Boot starts successfully, open this in the browser:</p>
+        <pre>http://localhost:8081/</pre>
+
+        <p>If the page looks outdated after code changes, hard refresh:</p>
+        <pre>Ctrl + F5</pre>
+
+        <h2>10. What the User Should See</h2>
+        <p>The portal should show:</p>
+        <ul>
+            <li>signup and login area</li>
+            <li>live user section</li>
+            <li>plot inventory section</li>
+            <li>plot cards with price, area, status, and optional image</li>
+            <li><code>My booked plots</code> section</li>
+        </ul>
+
+        <h2>11. Recommended Demo / Test Flow</h2>
+        <ol>
+            <li>Open the homepage at <code>http://localhost:8081/</code></li>
+            <li>Create a user account</li>
+            <li>Log in</li>
+            <li>Create one or more plots</li>
+            <li>Add image URLs to some plots</li>
+            <li>Search plots by location or owner</li>
+            <li>Filter by status</li>
+            <li>Book an available plot</li>
+            <li>Check that it appears under <code>My booked plots</code></li>
+            <li>Cancel the booking</li>
+        </ol>
+
+        <h2>12. How to Add Demo Plot Images</h2>
+        <p>While creating or editing a plot, paste any public image URL into the <code>Image URL</code> field.</p>
+        <p>Example sources for demo-only images:</p>
+        <ul>
+            <li><a href="https://unsplash.com/">https://unsplash.com/</a></li>
+            <li><a href="https://pexels.com/">https://pexels.com/</a></li>
+        </ul>
+
+        <div class="box">
+            <div class="label">Example Plot Data</div>
+            <ul>
+                <li>Plot Number: <code>SP-201</code></li>
+                <li>Owner Name: <code>SmartPlot Estates</code></li>
+                <li>Location: <code>Phase 4, Palm Avenue</code></li>
+                <li>Area: <code>2600</code></li>
+                <li>Price: <code>1750000</code></li>
+                <li>Status: <code>AVAILABLE</code></li>
+                <li>Image URL: any public image link</li>
+            </ul>
+        </div>
+
+        <h2>13. Troubleshooting</h2>
+        <h3>Problem: Spring Boot does not start</h3>
+        <p>Possible reasons:</p>
+        <ul>
+            <li>MySQL is not running</li>
+            <li>Wrong DB username/password</li>
+            <li>Database <code>smart_plot_portal</code> does not exist</li>
+            <li>Java project did not load properly in VS Code</li>
+        </ul>
+
+        <h3>Problem: Browser opens but shows errors</h3>
+        <ul>
+            <li>Log out and log in again</li>
+            <li>Hard refresh with <code>Ctrl + F5</code></li>
+            <li>Check terminal for backend error</li>
+        </ul>
+
+        <h3>Problem: Plot images do not show</h3>
+        <ul>
+            <li>Make sure the URL is public and reachable</li>
+            <li>Try a different image URL</li>
+        </ul>
+
+        <h3>Problem: Java import issues in VS Code</h3>
+        <ol>
+            <li>Press <code>Ctrl + Shift + P</code></li>
+            <li>Run <code>Java: Clean Java Language Server Workspace</code></li>
+            <li>Restart VS Code</li>
+        </ol>
+
+        <h2>14. For Team Members</h2>
+        <p>Once the repository is cloned, each member can run the app locally using the same steps above.</p>
+        <p>Team members can work in parallel on:</p>
+        <ul>
+            <li>authentication</li>
+            <li>plot management</li>
+            <li>booking flow</li>
+            <li>frontend polish</li>
+            <li>future payment or dashboard modules</li>
+        </ul>
+
+        <h2>15. Quick Summary</h2>
+        <ol>
+            <li>Open GitHub repo</li>
+            <li>Clone it</li>
+            <li>Open it in VS Code</li>
+            <li>Create MySQL database <code>smart_plot_portal</code></li>
+            <li>Run <code>SmartplotApplication.java</code></li>
+            <li>Open <code>http://localhost:8081/</code></li>
+        </ol>
+
+        <div class="box success">
+            <div class="label">Final Note</div>
+            <p>This project currently works best as a local full-stack prototype. It is suitable for team demo, academic presentation, and further development.</p>
+        </div>
+
+        <h2>16. Export as PDF</h2>
+        <ol>
+            <li>Open this file in a browser.</li>
+            <li>Press <code>Ctrl + P</code>.</li>
+            <li>Select <code>Save as PDF</code>.</li>
+            <li>Save and share it.</li>
+        </ol>
+    </main>
+</body>
+</html>

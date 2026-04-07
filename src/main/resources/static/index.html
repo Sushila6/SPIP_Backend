@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartPlot Estates</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="page-shell">
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="grid-overlay"></div>
+
+    <div class="topbar reveal">
+        <div class="brand-lockup">
+            <div class="brand-mark">SP</div>
+            <div>
+                <p class="brand-name">SmartPlot Estates</p>
+                <p class="brand-subtitle">Find verified plots, compare locations, and book with confidence</p>
+            </div>
+        </div>
+        <div class="topbar-meta">
+            <span class="company-pill">Trusted property marketplace</span>
+            <a class="topbar-link" href="#featuredListings">Browse Plots</a>
+            <button id="topbarLogoutButton" class="ghost-button hidden" type="button">Log Out</button>
+        </div>
+    </div>
+
+    <header class="hero">
+        <div class="hero-copy reveal">
+            <div class="eyebrow">Verified Plot Marketplace</div>
+            <h1>Find the right plot for your next home or investment.</h1>
+            <p class="hero-text">
+                Explore handpicked layouts, compare locations, review prices, and reserve approved plots through a clean and customer-friendly property experience.
+            </p>
+
+            <div class="hero-search">
+                <input id="heroSearchInput" type="text" placeholder="Search by location, area, or plot number">
+                <button id="heroSearchButton" class="primary-link" type="button">Search Listings</button>
+            </div>
+
+            <div class="hero-actions">
+                <a class="primary-link" href="#featuredListings">Explore Listings</a>
+                <a class="secondary-link" href="#accessSection">Sign In</a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-label">Property Types</span>
+                    <strong>Residential and Investment Plots</strong>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Buying Journey</span>
+                    <strong>Search, Compare, Reserve</strong>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Confidence</span>
+                    <strong>Approved Listings Only</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-panel reveal">
+            <div class="hero-panel-inner">
+                <p class="panel-kicker">Featured Community</p>
+                <div class="hero-visual">
+                    <div class="visual-card visual-card-main">
+                        <span class="visual-label">Popular Destination</span>
+                        <strong>North Ridge Phase I</strong>
+                        <p>Wide roads, growing surroundings, and ready-to-explore plots for families and long-term buyers.</p>
+                    </div>
+                    <div class="visual-card visual-card-accent">
+                        <span class="visual-label">Market Snapshot</span>
+                        <strong id="userCount">0</strong>
+                        <p>Live opportunities and customer activity tracked across the marketplace.</p>
+                    </div>
+                    <div class="glow-orb"></div>
+                </div>
+
+                <div class="pulse-row">
+                    <span>Marketplace pulse</span>
+                    <strong id="lastAction">App loaded</strong>
+                </div>
+                <div class="pulse-bar">
+                    <span id="pulseFill"></span>
+                </div>
+                <p class="panel-note" id="panelNote">Waiting for database activity.</p>
+
+                <div class="hero-panel-points">
+                    <div>
+                        <span class="panel-point-label">Best for</span>
+                        <strong>Families, first-time buyers, and investors</strong>
+                    </div>
+                    <div>
+                        <span class="panel-point-label">What you get</span>
+                        <strong>Clear pricing, verified listings, and easy reservations</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="rolesSection" class="dashboard-panel reveal">
+        <div class="section-head">
+            <div>
+                <p class="section-kicker">How People Use SmartPlot</p>
+                <h2>Built for buyers, investors, and trusted teams</h2>
+                <p class="section-copy">From shortlisting your first plot to reviewing premium opportunities, the experience stays simple and customer-first.</p>
+            </div>
+        </div>
+
+        <div class="role-grid">
+            <article class="role-spotlight role-user">
+                <span class="role-badge">Home Buyers</span>
+                <h3>Search with clarity</h3>
+                <p>Compare price, area, and location details before reserving a plot that fits your family or budget.</p>
+            </article>
+
+            <article class="role-spotlight role-admin">
+                <span class="role-badge">Investors</span>
+                <h3>Review growth corridors</h3>
+                <p>Explore high-potential layouts, study live availability, and shortlist promising plots for long-term value.</p>
+            </article>
+
+            <article class="role-spotlight role-investor">
+                <span class="role-badge">SmartPlot Team</span>
+                <h3>Keep listings trustworthy</h3>
+                <p>Behind the scenes, our team reviews listings, maintains quality, and supports a smooth booking experience.</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="publicHome" class="dashboard-panel reveal public-home">
+        <div class="section-head">
+            <div>
+                <p class="section-kicker">Discover More</p>
+                <h2>Everything you need before choosing a plot</h2>
+                <p class="section-copy">SmartPlot helps you move from browsing to booking with a cleaner, friendlier, and more transparent property journey.</p>
+            </div>
+        </div>
+
+        <div class="public-grid">
+            <article class="public-card public-card-large">
+                <span class="mini-label">Featured Destination</span>
+                <h3>North Ridge Smart Township</h3>
+                <p>Discover a fast-growing community with wide roads, future-ready planning, and plots that are easier to compare and reserve online.</p>
+                <div class="public-chip-row">
+                    <span class="public-chip">Verified Listings</span>
+                    <span class="public-chip">Transparent Pricing</span>
+                    <span class="public-chip">Easy Shortlisting</span>
+                </div>
+            </article>
+            <article class="public-card">
+                <span class="mini-label">Simple Search</span>
+                <h3>Compare locations faster</h3>
+                <p>Filter by area, price, and availability so you can focus on plots that truly match your needs.</p>
+            </article>
+            <article class="public-card">
+                <span class="mini-label">Guided Booking</span>
+                <h3>Reserve with less confusion</h3>
+                <p>View the essentials clearly, save your favorites, and move ahead with a smooth reservation experience.</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="featuredListings" class="dashboard-panel reveal public-home">
+        <div class="section-head">
+            <div>
+                <p class="section-kicker">Featured Listings</p>
+                <h2>Communities worth exploring first</h2>
+                <p class="section-copy">A few standout destinations to help visitors understand the quality, style, and range of plots available on SmartPlot.</p>
+            </div>
+        </div>
+
+        <div class="market-filter-bar">
+            <span class="market-filter-pill active">Buy</span>
+            <span class="market-filter-pill">Bangalore</span>
+            <span class="market-filter-pill">Top Localities</span>
+            <span class="market-filter-pill">Budget</span>
+            <span class="market-filter-pill">Plot / Land</span>
+            <span class="market-filter-pill">Verified Listings</span>
+        </div>
+
+        <div class="listing-preview-grid">
+            <article class="listing-preview">
+                <div class="listing-preview-media listing-preview-ocean"></div>
+                <div class="listing-preview-copy">
+                    <span class="mini-label">Coastal View</span>
+                    <h3>Marina Crest Plots</h3>
+                    <p>Premium residential plots near fast-growing corridors with open surroundings and strong long-term potential.</p>
+                    <div class="public-chip-row">
+                        <span class="public-chip">1200-2400 sqft</span>
+                        <span class="public-chip">Approved Layout</span>
+                    </div>
+                </div>
+            </article>
+            <article class="listing-preview">
+                <div class="listing-preview-media listing-preview-green"></div>
+                <div class="listing-preview-copy">
+                    <span class="mini-label">Green Township</span>
+                    <h3>Cedar Valley Extension</h3>
+                    <p>Balanced pricing, clean road access, and a calm layout suited for families comparing fast-growing zones.</p>
+                    <div class="public-chip-row">
+                        <span class="public-chip">Family Ready</span>
+                        <span class="public-chip">Live Availability</span>
+                    </div>
+                </div>
+            </article>
+            <article class="listing-preview">
+                <div class="listing-preview-media listing-preview-city"></div>
+                <div class="listing-preview-copy">
+                    <span class="mini-label">Urban Access</span>
+                    <h3>Skyline Edge Phase II</h3>
+                    <p>Designed for people who want proximity to roads, services, and future appreciation without losing everyday convenience.</p>
+                    <div class="public-chip-row">
+                        <span class="public-chip">Growth Corridor</span>
+                        <span class="public-chip">Investor Focus</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="whyChooseUs" class="dashboard-panel reveal public-home">
+        <div class="section-head">
+            <div>
+                <p class="section-kicker">Why SmartPlot</p>
+                <h2>Why buyers feel more comfortable here</h2>
+                <p class="section-copy">The experience is designed to reduce confusion, make listings easier to trust, and help customers move forward with more confidence.</p>
+            </div>
+        </div>
+
+        <div class="trust-grid">
+            <article class="trust-card">
+                <span class="mini-label">Verified Listings</span>
+                <h3>Cleaner and more trustworthy discovery</h3>
+                <p>Customers see better-curated plots first, so the browsing experience feels more reliable and easier to trust.</p>
+            </article>
+            <article class="trust-card">
+                <span class="mini-label">Clear Decisions</span>
+                <h3>Important details without the clutter</h3>
+                <p>Area, pricing, location, and plot status are presented clearly so buyers can compare options faster.</p>
+            </article>
+            <article class="trust-card">
+                <span class="mini-label">Smooth Journey</span>
+                <h3>From shortlist to reservation</h3>
+                <p>Save plots you like, review them later, and reserve with a smoother step-by-step flow.</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="testimonials" class="dashboard-panel reveal public-home">
+        <div class="section-head">
+            <div>
+                <p class="section-kicker">Customer Stories</p>
+                <h2>What people value about the experience</h2>
+                <p class="section-copy">Real estate decisions feel easier when the website is calm, clear, and focused on what buyers actually care about.</p>
+            </div>
+        </div>
+
+        <div class="testimonial-grid">
+            <article class="testimonial-card">
+                <p>"The shortlist made it easy to compare a few options with my family before taking the next step."</p>
+                <strong>Riya Sharma</strong>
+                <span>Home Buyer</span>
+            </article>
+            <article class="testimonial-card">
+                <p>"I liked how clearly the location, area, and price were shown. It felt much easier to evaluate where to invest."</p>
+                <strong>Arjun Mehta</strong>
+                <span>Investor</span>
+            </article>
+            <article class="testimonial-card">
+                <p>"The website feels simple to use, and the listing details are clear enough that you do not feel lost while browsing."</p>
+                <strong>Neha Reddy</strong>
+                <span>First-Time Buyer</span>
+            </article>
+        </div>
+    </section>
+
+    <main class="content-grid">
+        <section id="accessSection" class="auth-panel reveal">
+            <div class="section-head">
+                <div>
+                    <p class="section-kicker">Welcome Back</p>
+                    <h2>Start your SmartPlot journey</h2>
+                    <p class="section-copy">Create your account, sign in securely, or use OTP if you already have an account with us.</p>
+                </div>
+                <div class="auth-actions">
+                    <div class="tab-switch" aria-label="Authentication tabs">
+                        <button class="tab-button active" data-tab="signup" type="button">Create Account</button>
+                        <button class="tab-button" data-tab="login" type="button">Sign In</button>
+                        <button class="tab-button" data-tab="otp" type="button">OTP Login</button>
+                    </div>
+                    <button id="logoutButton" class="ghost-button hidden" type="button">Log Out</button>
+                </div>
+            </div>
+
+            <div class="auth-shell">
+                <div class="auth-side">
+                    <div class="form-banner auth-banner">
+                        <div>
+                            <span class="mini-label">Signed in user</span>
+                            <strong id="currentUser">None</strong>
+                        </div>
+                        <div>
+                            <span class="mini-label">Portfolio plots</span>
+                            <strong id="plotCount">0</strong>
+                        </div>
+                    </div>
+
+                    <div class="auth-story-card">
+                        <span class="mini-label">Why create an account</span>
+                        <h3>Shortlist, compare, and reserve with less hassle</h3>
+                        <p>Sign in to save your favorite plots, view full details, track bookings, and continue your search from one place.</p>
+                    </div>
+
+                    <div class="auth-benefits">
+                        <article class="auth-benefit">
+                            <span class="mini-label">Easy discovery</span>
+                            <strong>Compare price, area, and location clearly</strong>
+                        </article>
+                        <article class="auth-benefit">
+                            <span class="mini-label">Saved choices</span>
+                            <strong>Keep a shortlist of plots you want to revisit</strong>
+                        </article>
+                        <article class="auth-benefit">
+                            <span class="mini-label">Secure access</span>
+                            <strong>Sign in with password or OTP whenever you need</strong>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="auth-card">
+                    <form id="signupForm" class="form-panel active" data-auth-panel="signup" novalidate>
+                        <div class="auth-form-head">
+                            <h3>Create your account</h3>
+                            <p>Join SmartPlot and start exploring verified plots in just a few steps.</p>
+                        </div>
+                        <label>
+                            <span>I am signing up as</span>
+                            <select id="signupRole" name="role" required>
+                                <option value="USER">Home Buyer</option>
+                                <option value="ADMIN">SmartPlot Team</option>
+                                <option value="INVESTOR">Investor</option>
+                            </select>
+                        </label>
+                        <label>
+                            <span>Full name</span>
+                            <input id="signupName" name="name" type="text" placeholder="John Carter" required>
+                        </label>
+                        <label>
+                            <span>Email address</span>
+                            <input id="signupEmail" name="email" type="email" placeholder="john@email.com" required>
+                        </label>
+                        <label>
+                            <span>Create password</span>
+                            <input id="signupPassword" name="password" type="password" placeholder="Minimum 6 characters" required>
+                        </label>
+                        <label>
+                            <span>Phone number</span>
+                            <input id="signupPhone" name="phone" type="text" placeholder="9876543210" required>
+                        </label>
+                        <label>
+                            <span>Signup OTP</span>
+                            <input id="signupOtpCode" name="signupOtpCode" type="text" placeholder="Enter 6-digit OTP">
+                        </label>
+                        <div class="form-actions">
+                            <button id="requestSignupOtpButton" class="ghost-button" type="button">Send Signup OTP</button>
+                            <button class="primary-button no-margin" type="submit">Verify OTP and Create Account</button>
+                        </div>
+                        <p class="feedback" id="signupFeedback"></p>
+                    </form>
+
+                    <form id="loginForm" class="form-panel" data-auth-panel="login" novalidate>
+                        <div class="auth-form-head">
+                            <h3>Welcome back</h3>
+                            <p>Sign in to continue your search, manage saved plots, and review your bookings.</p>
+                        </div>
+                        <label>
+                            <span>Continue as</span>
+                            <select id="loginRole" name="role" required>
+                                <option value="USER">Home Buyer</option>
+                                <option value="ADMIN">SmartPlot Team</option>
+                                <option value="INVESTOR">Investor</option>
+                            </select>
+                        </label>
+                        <label>
+                            <span>Email address</span>
+                            <input id="loginEmail" name="email" type="email" placeholder="john@email.com" required>
+                        </label>
+                        <label>
+                            <span>Password</span>
+                            <input id="loginPassword" name="password" type="password" placeholder="Enter your password" required>
+                        </label>
+                        <button class="primary-button" type="submit">Sign In</button>
+                        <p class="feedback" id="loginFeedback"></p>
+                    </form>
+
+                    <form id="otpForm" class="form-panel" data-auth-panel="otp" novalidate>
+                        <div class="auth-form-head">
+                            <h3>Quick OTP login</h3>
+                            <p>Request a one-time code and sign in without typing your password.</p>
+                        </div>
+                        <label>
+                            <span>Continue as</span>
+                            <select id="otpRole" name="role" required>
+                                <option value="USER">Home Buyer</option>
+                                <option value="ADMIN">SmartPlot Team</option>
+                                <option value="INVESTOR">Investor</option>
+                            </select>
+                        </label>
+                        <label>
+                            <span>Email address</span>
+                            <input id="otpEmail" name="email" type="email" placeholder="john@email.com" required>
+                        </label>
+                        <label>
+                            <span>OTP code</span>
+                            <input id="otpCode" name="otpCode" type="text" placeholder="Enter 6-digit OTP">
+                        </label>
+                        <div class="form-actions">
+                            <button id="requestOtpButton" class="ghost-button" type="button">Send OTP</button>
+                            <button class="primary-button no-margin" type="submit">Verify and Sign In</button>
+                        </div>
+                        <p class="feedback" id="otpFeedback"></p>
+                    </form>
+
+                    <form id="resetPasswordOtpForm" class="form-panel active compact-form auth-reset-card" novalidate>
+                        <div class="auth-form-head">
+                            <h3>Forgot your password?</h3>
+                            <p>Request a reset OTP and create a new password without leaving the page.</p>
+                        </div>
+                        <label>
+                            <span>Account type</span>
+                            <select id="resetRole" name="resetRole" required>
+                                <option value="USER">Home Buyer</option>
+                                <option value="ADMIN">SmartPlot Team</option>
+                                <option value="INVESTOR">Investor</option>
+                            </select>
+                        </label>
+                        <label>
+                            <span>Registered email</span>
+                            <input id="resetEmail" type="email" placeholder="john@email.com">
+                        </label>
+                        <label>
+                            <span>Reset OTP</span>
+                            <input id="resetOtpCode" type="text" placeholder="Enter 6-digit reset OTP">
+                        </label>
+                        <label>
+                            <span>New password</span>
+                            <input id="resetNewPassword" type="password" placeholder="New password">
+                        </label>
+                        <div class="form-actions">
+                            <button id="requestResetOtpButton" class="ghost-button" type="button">Send Reset OTP</button>
+                            <button class="primary-button no-margin" type="submit">Reset Password</button>
+                        </div>
+                        <p class="feedback" id="resetPasswordFeedback"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="dashboardWelcome" class="dashboard-panel reveal requires-auth">
+            <div class="section-head">
+                <div>
+                    <p class="section-kicker">Welcome</p>
+                    <h2>Your SmartPlot home</h2>
+                    <p class="section-copy" id="dashboardWelcomeCopy">You are now inside your personal SmartPlot account.</p>
+                </div>
+            </div>
+
+            <div class="trust-grid">
+                <article class="trust-card">
+                    <span class="mini-label">Next Step</span>
+                    <h3>Pick up right where you left off</h3>
+                    <p>Move from browsing into a smoother signed-in experience built around your saved plots, bookings, and next actions.</p>
+                </article>
+                <article class="trust-card">
+                    <span class="mini-label">For Buyers</span>
+                    <h3>Search, save, and reserve</h3>
+                    <p>Browse approved listings, open details, save favorites, and complete payment-backed reservations.</p>
+                </article>
+                <article class="trust-card">
+                    <span class="mini-label">For SmartPlot Team</span>
+                    <h3>Keep listings clear and trustworthy</h3>
+                    <p>Review approvals, maintain listing quality, and support a cleaner marketplace for buyers and investors.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="dashboard-panel reveal requires-auth">
+            <div class="section-head">
+                <div>
+                    <p class="section-kicker">Profile</p>
+                    <h2>Manage your account</h2>
+                    <p class="section-copy">Update your profile details, change your password, and keep your portal access current.</p>
+                </div>
+            </div>
+
+            <div class="dashboard-strip">
+                <div class="mini-card">
+                    <span class="mini-label">Profile name</span>
+                    <strong id="profileDisplayName">Not loaded</strong>
+                </div>
+                <div class="mini-card">
+                    <span class="mini-label">Profile email</span>
+                    <strong id="profileDisplayEmail">Not loaded</strong>
+                </div>
+            </div>
+
+            <form id="profileForm" class="form-panel active" novalidate>
+                <label>
+                    <span>Name</span>
+                    <input id="profileName" type="text" placeholder="Your name">
+                </label>
+                <label>
+                    <span>Phone</span>
+                    <input id="profilePhone" type="text" placeholder="9876543210">
+                </label>
+                <button class="primary-button" type="submit">Save Profile</button>
+                <p class="feedback" id="profileFeedback"></p>
+            </form>
+
+            <form id="passwordForm" class="form-panel active compact-form" novalidate>
+                <label>
+                    <span>Current Password</span>
+                    <input id="currentPassword" type="password" placeholder="Current password">
+                </label>
+                <label>
+                    <span>New Password</span>
+                    <input id="newPassword" type="password" placeholder="New password">
+                </label>
+                <button class="ghost-button" type="submit">Change Password</button>
+                <p class="feedback" id="passwordFeedback"></p>
+            </form>
+        </section>
+
+        <section class="dashboard-panel reveal requires-auth">
+            <div class="section-head">
+                <div>
+                    <p class="section-kicker">Account Snapshot</p>
+                    <h2>Your SmartPlot activity at a glance</h2>
+                    <p class="section-copy">Track your recent activity, signed-in account, and the property actions that matter most to you.</p>
+                </div>
+            </div>
+
+            <div class="dashboard-strip">
+                <div class="mini-card">
+                    <span class="mini-label">Recent activity</span>
+                    <strong id="directoryLastAction">Ready to explore</strong>
+                </div>
+                <div class="mini-card">
+                    <span class="mini-label">Signed in as</span>
+                    <strong id="directoryCurrentUser">None</strong>
+                </div>
+            </div>
+
+            <div class="trust-grid compact-trust-grid">
+                <article class="trust-card">
+                    <span class="mini-label">Save time</span>
+                    <h3>Shortlist the right plots faster</h3>
+                    <p>Use favorites, filters, and clear details to focus on properties that match your needs without unnecessary clutter.</p>
+                </article>
+                <article class="trust-card">
+                    <span class="mini-label">Stay informed</span>
+                    <h3>Keep your bookings and updates in one place</h3>
+                    <p>Your reservations, payment progress, and important notifications stay connected to your account for a smoother experience.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="buyerDashboard" class="plots-board reveal requires-auth">
+            <div class="section-head">
+                <div>
+                    <p class="section-kicker">Your Property Journey</p>
+                    <h2>Browse, compare, and reserve plots</h2>
+                    <p class="section-copy">Explore approved listings, compare the essentials clearly, and keep your reservations moving without confusion.</p>
+                </div>
+                <div class="dashboard-strip compact-strip">
+                    <div class="mini-card">
+                        <span class="mini-label">Signed in as</span>
+                        <strong id="buyerRoleLabel">Home Buyer / Investor</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buyer-highlights">
+                <article class="highlight-card">
+                    <span class="mini-label">Discovery</span>
+                    <strong>Live plot catalogue</strong>
+                    <p>Search by location, owner, and status before making a reservation.</p>
+                </article>
+                <article class="highlight-card">
+                    <span class="mini-label">Booking</span>
+                    <strong>Reserve in one action</strong>
+                    <p>Available plots can be booked instantly and tracked under your account.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="adminDashboard" class="plot-panel reveal requires-auth">
+            <div class="section-head">
+                <div>
+                    <p class="section-kicker">SmartPlot Team</p>
+                    <h2 id="plotFormTitle">Publish and manage plot listings</h2>
+                    <p class="section-copy">Manage listings, upload plot images, and review approval status so customers see a cleaner, more trustworthy marketplace.</p>
+                </div>
+                <button id="refreshPlots" class="ghost-button" type="button">Refresh</button>
+            </div>
+
+                <div class="dashboard-strip">
+                    <div class="mini-card">
+                        <span class="mini-label">Pending approvals</span>
+                        <strong id="pendingApprovalCount">0</strong>
+                    </div>
+                    <div class="mini-card">
+                        <span class="mini-label">Approval flow</span>
+                        <strong>Pending -> Approved / Rejected</strong>
+                    </div>
+                </div>
+
+                <div class="form-actions export-actions">
+                    <button id="exportAdminReportButton" class="ghost-button" type="button">Download Admin CSV</button>
+                </div>
+
+            <div id="adminAnalyticsGrid" class="analytics-grid">
+                <article class="mini-card analytics-card">
+                    <span class="mini-label">Total Users</span>
+                    <strong id="metricTotalUsers">0</strong>
+                </article>
+                <article class="mini-card analytics-card">
+                    <span class="mini-label">Admins</span>
+                    <strong id="metricAdmins">0</strong>
+                </article>
+                <article class="mini-card analytics-card">
+                    <span class="mini-label">Investors</span>
+                    <strong id="metricInvestors">0</strong>
+                </article>
+                <article class="mini-card analytics-card">
+                    <span class="mini-label">Users</span>
+                    <strong id="metricRegularUsers">0</strong>
+                </article>
+                <article class="mini-card analytics-card">
+                    <span class="mini-label">Approved Plots</span>
+                    <strong id="metricApprovedPlots">0</strong>
+                </article>
+                <article class="mini-card analytics-card">
+                    <span class="mini-label">Pending Plots</span>
+                    <strong id="metricPendingPlots">0</strong>
+                </article>
+                <article class="mini-card analytics-card">
+                    <span class="mini-label">Rejected Plots</span>
+                    <strong id="metricRejectedPlots">0</strong>
+                </article>
+                <article class="mini-card analytics-card">
+                    <span class="mini-label">Reserved Plots</span>
+                    <strong id="metricReservedPlots">0</strong>
+                </article>
+                <article class="mini-card analytics-card">
+                    <span class="mini-label">Bookings</span>
+                    <strong id="metricBookings">0</strong>
+                </article>
+                <article class="mini-card analytics-card">
+                    <span class="mini-label">Payments</span>
+                    <strong id="metricPayments">0</strong>
+                </article>
+                <article class="mini-card analytics-card">
+                    <span class="mini-label">Payment Success</span>
+                    <strong id="metricPaymentSuccess">0</strong>
+                </article>
+                <article class="mini-card analytics-card">
+                    <span class="mini-label">Payment Failed</span>
+                    <strong id="metricPaymentFailed">0</strong>
+                </article>
+            </div>
+
+            <form id="plotForm" class="form-panel active plot-form" novalidate>
+                <input id="editingPlotId" type="hidden">
+                <label>
+                    <span>Plot Number</span>
+                    <input id="plotNumber" name="plotNumber" type="text" placeholder="SP-101" required>
+                </label>
+                <label>
+                    <span>Owner Name</span>
+                    <input id="ownerName" name="ownerName" type="text" placeholder="Aarav Mehta" required>
+                </label>
+                <label>
+                    <span>Location</span>
+                    <input id="plotLocation" name="location" type="text" placeholder="Phase 1, North Block" required>
+                </label>
+                <label>
+                    <span>Area (sqft)</span>
+                    <input id="areaSqft" name="areaSqft" type="number" min="100" placeholder="2400" required>
+                </label>
+                <label>
+                    <span>Price</span>
+                    <input id="plotPrice" name="price" type="number" min="1" step="0.01" placeholder="1250000" required>
+                </label>
+                <label>
+                    <span>Status</span>
+                    <select id="plotStatus" name="status">
+                        <option value="AVAILABLE">AVAILABLE</option>
+                        <option value="RESERVED">RESERVED</option>
+                        <option value="SOLD">SOLD</option>
+                    </select>
+                </label>
+                <label class="wide-field">
+                    <span>Image URL</span>
+                    <input id="plotImageUrl" name="imageUrl" type="text" placeholder="https://images.unsplash.com/...">
+                </label>
+                <label class="wide-field">
+                    <span>Or Upload Image</span>
+                    <input id="plotImageFile" name="imageFile" type="file" accept=".jpg,.jpeg,.png,.webp">
+                </label>
+                <div class="form-actions">
+                    <button id="uploadImageButton" class="ghost-button" type="button">Upload Image</button>
+                    <button id="plotSubmitButton" class="primary-button" type="submit">Create Plot</button>
+                    <button id="cancelEditButton" class="ghost-button hidden" type="button">Cancel Edit</button>
+                </div>
+                <p class="feedback" id="plotFeedback"></p>
+            </form>
+        </section>
+
+        <section class="plots-board reveal requires-auth">
+            <div class="section-head">
+                <div>
+                    <p class="section-kicker">Browse Listings</p>
+                    <h2>Plots for sale and reservation</h2>
+                    <p class="section-copy">Explore approved plots in a familiar listings layout with quick filters, pricing, location details, and direct actions.</p>
+                </div>
+                <div class="dashboard-strip compact-strip">
+                    <div class="mini-card">
+                        <span class="mini-label">Matching listings</span>
+                        <strong id="plotInventoryCount">0</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-toolbar">
+                <div class="market-filter-bar market-filter-bar-live">
+                    <span class="market-filter-pill active">Buy</span>
+                    <label class="toolbar-field inline-toolbar-field">
+                        <input id="plotSearch" type="text" placeholder="Search locality, owner, or plot number">
+                    </label>
+                    <label class="toolbar-field inline-toolbar-field">
+                        <select id="plotFilterStatus">
+                            <option value="ALL">Any Status</option>
+                            <option value="AVAILABLE">Available</option>
+                            <option value="RESERVED">Reserved</option>
+                            <option value="SOLD">Sold</option>
+                        </select>
+                    </label>
+                    <button id="clearPlotFilters" class="ghost-button" type="button">Clear Filters</button>
+                </div>
+                <div class="results-meta">
+                    <div class="results-tabs">
+                        <span class="results-tab active">Properties</span>
+                        <span class="results-tab">New Projects</span>
+                        <span class="results-tab">Top Localities</span>
+                    </div>
+                    <div class="sort-chip">Sort by: Relevance</div>
+                </div>
+            </div>
+
+            <div class="results-shell">
+                <div class="results-main">
+                    <div class="results-heading">
+                        <h3>Recommended plots based on your filters</h3>
+                        <p>Verified property cards with area, price, status, and quick actions to help customers browse naturally.</p>
+                    </div>
+
+                    <div id="plotsEmpty" class="empty-state">
+                        <h3>No plots yet</h3>
+                        <p>Try changing the filters or create your first approved plot to populate the listings page.</p>
+                    </div>
+
+                    <div id="plotsGrid" class="plots-grid listing-results-grid" aria-live="polite"></div>
+                </div>
+
+                <aside class="results-sidebar">
+                    <article class="sidebar-promo-card">
+                        <p class="mini-label">Need help choosing?</p>
+                        <h3>Talk to a SmartPlot advisor</h3>
+                        <p>Get guidance on locality, price range, and approval-ready plots before you reserve.</p>
+                        <button class="primary-button no-margin" type="button">Talk to Advisor</button>
+                    </article>
+
+                    <article class="sidebar-promo-card soft">
+                        <p class="mini-label">Why buyers like this view</p>
+                        <ul class="sidebar-points">
+                            <li>See price and area clearly</li>
+                            <li>Shortlist plots faster</li>
+                            <li>Open details without losing context</li>
+                        </ul>
+                    </article>
+
+                    <article class="sidebar-promo-card image-card">
+                        <div class="sidebar-image sidebar-image-a"></div>
+                        <h3>Verified community highlights</h3>
+                        <p>Browse market-ready layouts with cleaner visibility into location and booking status.</p>
+                    </article>
+                </aside>
+            </div>
+        </section>
+
+        <section class="plots-board reveal requires-auth">
+            <div class="section-head">
+                <div>
+                    <p class="section-kicker">Bookings</p>
+                    <h2>My booked plots</h2>
+                    <p class="section-copy">Plots reserved under the current signed-in account appear here instantly.</p>
+                </div>
+                <div class="dashboard-strip compact-strip">
+                    <div class="mini-card">
+                        <span class="mini-label">My bookings</span>
+                        <strong id="myBookingCount">0</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div id="myBookingsEmpty" class="empty-state">
+                <h3>No bookings yet</h3>
+                <p>Book an available plot and it will appear here instantly.</p>
+            </div>
+
+            <div id="myBookingsGrid" class="plots-grid" aria-live="polite"></div>
+        </section>
+
+        <section class="plots-board reveal requires-auth">
+            <div class="section-head">
+                <div>
+                    <p class="section-kicker">Payments</p>
+                    <h2>Recent payment activity</h2>
+                    <p class="section-copy">Mock payment attempts are stored here so your demo shows success, failure, and transaction tracking.</p>
+                </div>
+                <div class="dashboard-strip compact-strip">
+                    <div class="mini-card">
+                        <span class="mini-label">Payment records</span>
+                        <strong id="paymentCount">0</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div id="paymentsEmpty" class="empty-state">
+                <h3>No payments yet</h3>
+                <p>Complete a mock payment to see transaction history appear here.</p>
+            </div>
+
+            <div id="paymentsGrid" class="users-grid" aria-live="polite"></div>
+        </section>
+
+        <section class="plots-board reveal requires-auth">
+            <div class="section-head">
+                <div>
+                    <p class="section-kicker">Saved Plots</p>
+                    <h2>Favorites and shortlist</h2>
+                    <p class="section-copy">Save approved plots you want to revisit later while comparing price, area, and location.</p>
+                </div>
+                <div class="dashboard-strip compact-strip">
+                    <div class="mini-card">
+                        <span class="mini-label">Saved plots</span>
+                        <strong id="favoriteCount">0</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div id="favoritesEmpty" class="empty-state">
+                <h3>No saved plots yet</h3>
+                <p>Use the Save Plot action in the catalogue to build your shortlist.</p>
+            </div>
+
+            <div id="favoritesGrid" class="plots-grid" aria-live="polite"></div>
+        </section>
+
+        <section class="plots-board reveal requires-auth">
+            <div class="section-head">
+                <div>
+                    <p class="section-kicker">Notifications</p>
+                    <h2>Recent activity alerts</h2>
+                    <p class="section-copy">Track account, booking, approval, and payment events without leaving the portal.</p>
+                </div>
+                <div class="dashboard-strip compact-strip">
+                    <div class="mini-card">
+                        <span class="mini-label">Alerts</span>
+                        <strong id="notificationCount">0</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div id="notificationsEmpty" class="empty-state">
+                <h3>No notifications yet</h3>
+                <p>Important account and plot events will appear here automatically.</p>
+            </div>
+
+            <div id="notificationsGrid" class="users-grid" aria-live="polite"></div>
+        </section>
+    </main>
+
+    <footer id="siteFooter" class="dashboard-panel reveal public-home site-footer">
+        <div class="footer-grid">
+            <div>
+                <p class="brand-name">SmartPlot Estates</p>
+                <p class="section-copy">A customer-friendly property website for discovering verified plots, comparing locations, and reserving with confidence.</p>
+            </div>
+            <div>
+                <p class="mini-label">Contact</p>
+                <p class="section-copy">support@smartplot.com</p>
+                <p class="section-copy">+91 98765 00000</p>
+            </div>
+            <div>
+                <p class="mini-label">Explore</p>
+                <p class="section-copy">Featured communities</p>
+                <p class="section-copy">Verified plots</p>
+                <p class="section-copy">Buying guide</p>
+            </div>
+            <div>
+                <p class="mini-label">Office</p>
+                <p class="section-copy">SmartPlot Estates, Hyderabad</p>
+                <p class="section-copy">Open Monday to Saturday</p>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<div id="plotDetailsModal" class="modal-shell hidden" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal="true"></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="plotDetailsTitle">
+        <button id="closePlotDetails" class="modal-close" type="button" aria-label="Close details">&times;</button>
+        <div class="modal-media-wrap">
+            <div id="plotDetailsMedia"></div>
+        </div>
+        <div class="modal-content">
+            <div class="modal-topline">
+                <div>
+                    <p class="section-kicker">Property Details</p>
+                    <h2 id="plotDetailsTitle">Plot Overview</h2>
+                </div>
+                <span id="plotDetailsStatus" class="plot-status">AVAILABLE</span>
+            </div>
+
+            <div class="modal-price-row">
+                <strong id="plotDetailsPrice" class="modal-price">INR 0</strong>
+                <span id="plotDetailsLocation" class="modal-location">Location</span>
+            </div>
+
+            <div class="detail-grid">
+                <div class="detail-tile">
+                    <span class="mini-label">Plot Number</span>
+                    <strong id="detailPlotNumber">-</strong>
+                </div>
+                <div class="detail-tile">
+                    <span class="mini-label">Area</span>
+                    <strong id="detailArea">-</strong>
+                </div>
+                <div class="detail-tile">
+                    <span class="mini-label">Owner</span>
+                    <strong id="detailOwner">-</strong>
+                </div>
+                <div class="detail-tile">
+                    <span class="mini-label">Booked By</span>
+                    <strong id="detailBookedBy">Available</strong>
+                </div>
+                <div class="detail-tile">
+                    <span class="mini-label">Approval</span>
+                    <strong id="detailApprovalStatus">Pending</strong>
+                </div>
+            </div>
+
+            <div class="detail-story">
+                <div class="story-card">
+                    <span class="mini-label">Property Summary</span>
+                    <p id="plotDetailsSummary">
+                        This premium listing is part of the live SmartPlot inventory and can be tracked, reviewed, and reserved through the portal.
+                    </p>
+                </div>
+                <div class="story-card">
+                    <span class="mini-label">Investor Snapshot</span>
+                    <p id="plotDetailsInvestorNote">
+                        High-visibility listing with clear pricing, area, and status data for quick review.
+                    </p>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button id="modalBookButton" class="primary-button hidden" type="button">Book Plot</button>
+                <button id="modalFavoriteButton" class="ghost-button hidden" type="button">Save Plot</button>
+                <button id="modalEditButton" class="ghost-button hidden" type="button">Edit Plot</button>
+                <button id="modalDeleteButton" class="ghost-button hidden" type="button">Delete Plot</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="paymentModal" class="modal-shell hidden" aria-hidden="true">
+    <div class="modal-backdrop" data-close-payment="true"></div>
+    <div class="modal-panel payment-panel" role="dialog" aria-modal="true" aria-labelledby="paymentModalTitle">
+        <button id="closePaymentModal" class="modal-close" type="button" aria-label="Close payment">x</button>
+        <div class="modal-content">
+            <div class="modal-topline">
+                <div>
+                    <p class="section-kicker">Mock Payment</p>
+                    <h2 id="paymentModalTitle">Complete booking payment</h2>
+                </div>
+                <span id="paymentAmount" class="plot-status available">INR 0</span>
+            </div>
+
+            <div class="detail-story payment-story">
+                <div class="story-card">
+                    <span class="mini-label">Selected Plot</span>
+                    <p id="paymentPlotSummary">Choose a plot to continue with payment.</p>
+                </div>
+                <div class="story-card">
+                    <span class="mini-label">How this works</span>
+                    <p>This is a safe demo payment flow. Pick a method, then simulate success or failure without using a real gateway or real money.</p>
+                </div>
+            </div>
+
+            <form id="paymentForm" class="form-panel active" novalidate>
+                <label>
+                    <span>Payment Method</span>
+                    <select id="paymentMethod" name="paymentMethod" required>
+                        <option value="UPI">UPI</option>
+                        <option value="CARD">CARD</option>
+                        <option value="NETBANKING">NETBANKING</option>
+                    </select>
+                </label>
+
+                <div class="payment-simulate">
+                    <span class="mini-label">Simulation Result</span>
+                    <div class="payment-choice-row">
+                        <label class="choice-pill">
+                            <input type="radio" name="paymentOutcome" value="success" checked>
+                            <span>Simulate Success</span>
+                        </label>
+                        <label class="choice-pill">
+                            <input type="radio" name="paymentOutcome" value="failure">
+                            <span>Simulate Failure</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button id="confirmPaymentButton" class="primary-button" type="submit">Process Payment</button>
+                    <button id="cancelPaymentButton" class="ghost-button" type="button">Cancel</button>
+                </div>
+                <p class="feedback" id="paymentFeedback"></p>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>
